@@ -1,0 +1,23 @@
+---
+
+- name: Ensure directory exists for local self-signed TLS certs
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ data_ssl_dir }}"
+    - "{{ data_ssl_dir }}/{{ data_ssl_ca_dir }}"
+    - "{{ data_ssl_dir }}/{{ data_ssl_transport_dir }}"
+    - "{{ data_ssl_dir }}/{{ data_ssl_peer_dir }}"
+
+- name: Create local certificates directory
+  become: false
+  local_action:
+    module: file
+    state: directory
+    path: "{{ data_ssl_local_dir }}"
+    recurse: true
+
+- include_tasks: certificates/gen-ca.yml
+- include_tasks: certificates/gen-peer.yml
+- include_tasks: certificates/gen-transport.yml

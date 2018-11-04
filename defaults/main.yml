@@ -1,0 +1,27 @@
+---
+# Role configuration options
+
+# Cluster
+ssl_hosts_group: ssl-certificates
+
+# Config
+ssl_config_network_interface: eth1
+
+# Security
+data_ssl_local_dir: certificates
+data_ssl_dir: /data/ssl
+data_ssl_ca_dir: ca
+data_ssl_ca_key: ca.key
+data_ssl_ca_csr: ca.csr
+data_ssl_ca_cert: ca.pem
+data_ssl_ca_cn: Ansible
+data_ssl_transport_dir: transport
+data_ssl_transport_key: client-transport.key
+data_ssl_transport_csr: client-transport.csr
+data_ssl_transport_cert: client-transport.pem
+data_ssl_transport_cn: Ansible
+data_ssl_peer_dir: peer
+data_ssl_peer_key: peer.key
+data_ssl_peer_csr: peer.csr
+data_ssl_peer_cert: peer.pem
+data_ssl_peer_cn: "{{ ansible_hostname }}"

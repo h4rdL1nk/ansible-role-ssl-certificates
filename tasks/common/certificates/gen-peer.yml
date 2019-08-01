@@ -13,7 +13,7 @@
     privatekey_path: "{{ data_ssl_dir }}/{{ data_ssl_peer_dir }}/{{ data_ssl_peer_key }}"
     common_name: "{{ data_ssl_peer_cn|default( ansible_hostname ) }}"
     subject_alt_name:
-      - "IP:{{ hostvars[inventory_hostname]['ansible_%s' | format(ssl_config_network_interface)].ipv4.address }}"
+      - "IP:{{ data_ssl_peer_ip }}"
       - "DNS:{{ data_ssl_peer_cn|default( ansible_hostname ) }}"
     basic_constraints:
       - CA:false

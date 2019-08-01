@@ -17,7 +17,7 @@
     privatekey_path: "{{ data_ssl_local_dir }}/{{ data_ssl_transport_key }}"
     common_name: "{{ data_ssl_transport_cn }}"
     #subject_alt_name: "{{ groups[etcd_hosts_group] | map('regex_replace', '^', 'DNS:') | list }}"
-    subject_alt_name: "{% for node in data_ssl_transport_ips %}IP:{{ node }}{% if loop.index < data_ssl_transport_ips %},{% endif %}{% endfor %}"
+    subject_alt_name: "{% for node in data_ssl_transport_ips %}IP:{{ node }}{% if loop.index < data_ssl_transport_ips|length %},{% endif %}{% endfor %}"
     basic_constraints:
       - CA:FALSE
     basic_constraints_critical: true

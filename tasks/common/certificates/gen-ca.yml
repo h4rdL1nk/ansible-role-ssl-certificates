@@ -19,7 +19,7 @@
     privatekey_path: "{{ data_ssl_local_dir }}/{{ data_ssl_ca_key }}"
     common_name: "{{ data_ssl_ca_cn }}"
     basic_constraints:
-      - CA:true
+      - CA:TRUE
     basic_constraints_critical: true
     key_usage:
       - keyCertSign

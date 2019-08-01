@@ -19,7 +19,7 @@
     #subject_alt_name: "{{ groups[etcd_hosts_group] | map('regex_replace', '^', 'DNS:') | list }}"
     subject_alt_name: "{% for node in data_ssl_transport_ips %}IP:{{ node }}{% if loop.index < groups[ssl_hosts_group]|length %},{% endif %}{% endfor %}"
     basic_constraints:
-      - CA:false
+      - CA:FALSE
     basic_constraints_critical: true
     force: false
   tags:

@@ -16,7 +16,7 @@
       - "IP:{{ data_ssl_peer_ip }}"
       - "DNS:{{ data_ssl_peer_cn|default( ansible_hostname ) }}"
     basic_constraints:
-      - CA:false
+      - CA:FALSE
     basic_constraints_critical: true
     extended_key_usage:
       - clientAuth
